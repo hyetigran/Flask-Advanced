@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask-jwt-extended = "*"
+Flask = "*"
+Flask-RESTful = "*"
+Flask-SQLAlchemy = "*"
+marshmallow = "==3.10.0"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+black = "==20.8b1"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
