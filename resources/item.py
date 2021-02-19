@@ -65,25 +65,6 @@ class Item(Resource):
 
 
 class ItemList(Resource):
-    @jwt_optional
     def get(self):
-        """
-        Here we get the JWT identity, and then if the user is logged in (we were able to get an identity)
-        we return the entire item list.
-
-        Otherwise we just return the item names.
-
-        This could be done with e.g. see orders that have been placed, but not see details about the orders
-        unless the user has logged in.
-        """
-        user_id = get_jwt_identity()
         items = [item.json() for item in ItemModel.find_all()]
-        if user_id:
-            return {"items": items}, 200
-        return (
-            {
-                "items": [item["name"] for item in items],
-                "message": "More data available if you log in.",
-            },
-            200,
-        )
+        return {"items": items}, 200
